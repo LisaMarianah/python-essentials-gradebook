@@ -33,7 +33,17 @@ def read_valid_mark():
 
 # Adds a new student to the gradebook dictionary
 def add_student(gradebook):
-...
+    name = input("Student name: ").strip()
+
+    if name == "":
+        print("Student name cannot be blank.")
+        return
+
+    if name in gradebook:
+        print(f"{name} already exists.")
+    else:
+        gradebook[name] = []
+        print(f"{name} added.")
 
 # Adds one validated mark to an existing student
 def add_mark(gradebook):
