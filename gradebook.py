@@ -18,7 +18,18 @@ def highest_and_lowest(marks):
 
 # Asks for a mark, validates it with try-except, returns the float or None
 def read_valid_mark():
-...
+   try:
+        mark = float(input("Mark (0-100): "))
+
+        if mark < 0 or mark > 100:
+            print("Mark must be between 0 and 100.")
+            return None
+
+        return mark
+
+    except ValueError:
+        print("That is not a number.")
+        return None
 
 # Adds a new student to the gradebook dictionary
 def add_student(gradebook):
