@@ -1,12 +1,19 @@
-# Student Gradebook Manager - Your Name - Python Essentials 1
+# Student Gradebook Manager - Lisa Hlongwane - Python Essentials 1
 
 # Returns the average of a list of marks, or None if the list is empty
 def calculate_average(marks):
-...
+  if len(marks) == 0:
+      return None
+
+  return sum(marks)/len(marks)
 
 # Returns the highest and lowest mark as a tuple: (highest, lowest)
 def highest_and_lowest(marks):
-...
+    highest = max(marks)
+    lowest = min(marks)
+
+    return highest, lowest
+  
 
 # Asks for a mark, validates it with try-except, returns the float or None
 def read_valid_mark():
@@ -41,5 +48,4 @@ def remove_student(gradebook):
 gradebook = {}
 while True:
 # print the menu, read the choice, call the right function
-...
 
