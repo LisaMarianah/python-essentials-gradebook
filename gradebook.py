@@ -47,7 +47,19 @@ def add_student(gradebook):
 
 # Adds one validated mark to an existing student
 def add_mark(gradebook):
-...
+    name = input("Student name: ")
+
+    if name not in gradebook:
+        print("Student not found.")
+        return
+
+    mark = read_valid_mark()
+
+    if mark is None:
+        return
+
+    gradebook[name].append(mark)
+    print("Mark added.")
 
 # Prints every student with marks and average
 def view_all(gradebook):
