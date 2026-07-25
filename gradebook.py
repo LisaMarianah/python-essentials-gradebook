@@ -7,6 +7,7 @@ def calculate_average(marks):
 
   return sum(marks)/len(marks)
 
+
 # Returns the highest and lowest mark as a tuple: (highest, lowest)
 def highest_and_lowest(marks):
     highest = max(marks)
