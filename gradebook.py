@@ -142,7 +142,19 @@ def class_statistics(gradebook):
 
 # Removes a student after y/n confirmation
 def remove_student(gradebook):
-...
+    name = input("Student name: ")
+
+    if name not in gradebook:
+        print("Student not found.")
+        return
+
+    confirm = input(f"Delete {name}? (y/n): ")
+
+    if confirm.lower() == "y":
+        del gradebook[name]
+        print("Student removed.")
+    else:
+        print("Cancelled.")
 
 # ---- main program ----
 
