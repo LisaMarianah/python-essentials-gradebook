@@ -161,4 +161,39 @@ def remove_student(gradebook):
 gradebook = {}
 while True:
 # print the menu, read the choice, call the right function
+    print("\n STUDENT GRADEBOOK MANAGER ")
+    print("1. Add a student")
+    print("2. Add a mark")
+    print("3. View all students")
+    print("4. Student summary")
+    print("5. Class statistics")
+    print("6. Remove a student")
+    print("7. Exit")
 
+    choice = input("Choose an option (1-7): ")
+
+    if choice == "1":
+        add_student(gradebook)
+
+    elif choice == "2":
+        add_mark(gradebook)
+
+    elif choice == "3":
+
+        view_all(gradebook)
+
+    elif choice == "4":
+        student_summary(gradebook)
+
+    elif choice == "5":
+        class_statistics(gradebook)
+
+    elif choice == "6":
+        remove_student(gradebook)
+
+    elif choice == "7":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid option. Please choose a number from 1 to 7.")
