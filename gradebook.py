@@ -18,7 +18,7 @@ def highest_and_lowest(marks):
 
 # Asks for a mark, validates it with try-except, returns the float or None
 def read_valid_mark():
-   try:
+    try:
         mark = float(input("Mark (0-100): "))
 
         if mark < 0 or mark > 100:
@@ -69,10 +69,10 @@ def view_all(gradebook):
 
     for student, marks in gradebook.items():
         if len(marks) == 0:
-        print(f"{student}: No marks")
+            print(f"{student}: No marks")
         else:
-        average = calculate_average(marks)
-        print(f"{student}: {marks} - Average: {average:.2f}
+            average = calculate_average(marks)
+            print(f"{student}: {marks} - Average: {average:.2f}")
 
 # Prints one student's full summary
 def student_summary(gradebook):
@@ -99,7 +99,7 @@ def student_summary(gradebook):
 
 # Prints class statistics including pass/fail lists
 def class_statistics(gradebook):
-     if len(gradebook) == 0:
+    if len(gradebook) == 0:
         print("No students yet.")
         return
 
