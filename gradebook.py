@@ -99,26 +99,46 @@ def student_summary(gradebook):
 
 # Prints class statistics including pass/fail lists
 def class_statistics(gradebook):
-    name = input("Student name: ")
-
-    if name not in gradebook:
-        print("Student not found.")
+     if len(gradebook) == 0:
+        print("No students yet.")
         return
 
-    marks = gradebook[name]
+    all_marks = []
+    passing = []
+    failing = []
+    top_student = None
+    highest_average = -1
 
-    if len(marks) == 0:
-        print(f"{name} has no marks yet.")
+    for student, marks in gradebook.items():
+
+        if len(marks) == 0:
+            print(f"{student}: no marks yet")
+            continue
+
+        average = calculate_average(marks)
+
+        all_marks.extend(marks)
+
+        if average >= 50:
+            passing.append(student)
+        else:
+            failing.append(student)
+
+        if average > highest_average:
+            highest_average = average
+            top_student = student
+
+    if len(all_marks) == 0:
+        print("No marks available.")
         return
 
-    average = calculate_average(marks)
-    highest, lowest = highest_and_lowest(marks)
+    class_average = sum(all_marks) / len(all_marks)
 
-    print(f"\nStudent: {name}")
-    print(f"Marks: {marks}")
-    print(f"Average: {average:.2f}")
-    print(f"Highest: {highest}")
-    print(f"Lowest: {lowest}")
+    print(f"\nTotal students: {len(gradebook)}")
+    print(f"Class average: {class_average:.2f}")
+    print(f"Top student: {top_student}")
+    print(f"Passing: {passing}")
+    print(f"Failing: {failing}")
 
 # Removes a student after y/n confirmation
 def remove_student(gradebook):
