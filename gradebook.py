@@ -63,7 +63,16 @@ def add_mark(gradebook):
 
 # Prints every student with marks and average
 def view_all(gradebook):
-...
+    if len(gradebook) == 0:
+        print("No students yet.")
+        return
+
+    for student, marks in gradebook.items():
+        if len(marks) == 0:
+        print(f"{student}: No marks")
+        else:
+        average = calculate_average(marks)
+        print(f"{student}: {marks} - Average: {average:.2f}
 
 # Prints one student's full summary
 def student_summary(gradebook):
